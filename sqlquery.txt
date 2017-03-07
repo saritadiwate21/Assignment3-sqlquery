@@ -1,1 +1,24 @@
+CREATE TABLE Department
+(
+DeptNo int  NOT NULL ,
+Dname varchar(255)  NOT NULL ,
+Location varchar(255)  NOT NULL ,
+PRIMARY KEY (DeptNo)
+);
+
+CREATE TABLE Employee
+(
+EmpNo int NOT NULL,
+Ename varchar(255)  NOT NULL ,
+Job varchar(255)  NOT NULL ,
+MGR varchar(255)  NOT NULL ,
+Hiredate varchar(255)  NOT NULL,
+Salary varchar(255)  NOT NULL,
+DeptNo int,
+PRIMARY KEY (EmpNo),
+FOREIGN KEY (DeptNo) REFERENCES Department(DeptNo)
+);
+
+
+
 select Dname,count(EmpNo) from Employee e, Department d  where e.DeptNo=d.DeptNo  group by d.Dname;
